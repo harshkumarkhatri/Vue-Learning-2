@@ -5,6 +5,8 @@
     :update-active-index="(index) => (activePage = index)"
   ></page-navbar>
   <page-viewer :page="pages[activePage]"></page-viewer>
+  <!-- First approach of handling when data is being loaded -->
+  <!-- v-if="pages.length > 0" -->
 </template>
 
 <script>

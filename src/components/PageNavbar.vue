@@ -53,9 +53,22 @@ export default {
       themeShade: "light",
     };
   },
+  created() {
+    this.getThemeSettings();
+  },
   methods: {
     changeTheme() {
       this.themeShade = this.themeShade == "light" ? "dark" : "light";
+      this.storeThemeSettings();
+    },
+    storeThemeSettings() {
+      localStorage.setItem("theme", this.themeShade);
+    },
+    getThemeSettings() {
+      let theme = localStorage.getItem("theme");
+      if (theme != null) {
+        this.themeShade = theme;
+      }
     },
   },
 };

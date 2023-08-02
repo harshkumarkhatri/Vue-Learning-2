@@ -8,6 +8,19 @@
 <script>
 export default {
   name: "PageViewer",
-  props: ["page"],
+  // Second approach of handling when data is being loaded
+  props: {
+    page: {
+      type: Object,
+      default(rawProps) {
+        console.log(rawProps);
+        return {
+          pageTitle: "",
+          message: "",
+        };
+      },
+    },
+  },
+  // ["page"],
 };
 </script>
