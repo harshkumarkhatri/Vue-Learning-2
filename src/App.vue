@@ -1,7 +1,4 @@
 <template>
-  <!-- <p>This is some simple text</p>
-   <Navbar></Navbar>
-  <PageViewer></PageViewer> -->
   <page-navbar
     :pages="pages"
     :index="activePage"
