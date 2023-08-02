@@ -31,7 +31,11 @@
         </div>
         <div class="row-mb-3">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              v-model="published"
+            />
             <label class="form-check-label" for="gridCheck1">Published</label>
           </div>
         </div>
@@ -59,6 +63,7 @@ export default {
       content: "",
       linkText: "",
       linkUrl: "",
+      published: true,
     };
   },
   computed: {
@@ -69,19 +74,36 @@ export default {
     },
   },
   methods: {
+    clearForm() {
+      (this.pageTitle = ""),
+        (this.content = ""),
+        (this.linkText = ""),
+        (this.linkUrl = ""),
+        (this.published = true);
+    },
     submitForm() {
       if (!this.pageTitle || !this.content || !this.linkText || !this.linkUrl) {
         alert("Please fill all fields to continue");
         return;
       }
+      console.log(`Link url is ${this.linkUrl}`);
       this.pageCreated({
         pageTitle: this.pageTitle,
         content: this.content,
-        link: {
-          text: this.linkText,
-          url: this.linkUrl,
-        },
+        links: [{ text: this.linkText, urlPath: this.linkUrl }],
+        published: this.published,
       });
+      this.clearForm();
+    },
+  },
+  watch: {
+    pageTitle(newTitle, oldTitle) {
+      // This condition is added for the case when
+      // the user has changed the link text and it should
+      // not update when we change value of page title
+      if (this.linkText === oldTitle) {
+        this.linkText = newTitle;
+      }
     },
   },
 };

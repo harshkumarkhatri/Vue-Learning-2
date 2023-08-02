@@ -41,7 +41,10 @@ export default {
       this.pages = data;
     },
     pageCreated(pageObject) {
-      console.log(pageObject);
+      // console.log(pageObject);
+      // TODO: Not adding the value again and again if it is already present
+      this.pages.push(pageObject);
+      console.log(this.pages);
     },
   },
 };

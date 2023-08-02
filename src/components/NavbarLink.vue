@@ -3,9 +3,9 @@
     class="nav-link"
     :class="activeClass"
     aria-current="page"
-    :href="page.links[index].urlPath"
-    :title="`This link taked to ${page.links[index].text} page`"
-    >{{ page.links[index].text }}
+    :href="page.links[0].urlPath"
+    :title="`This link taked to ${page.links[0].text} page`"
+    >{{ page.links[0].text }}
   </a>
 </template>
 
