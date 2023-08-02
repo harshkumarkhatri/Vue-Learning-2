@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mr-auto">
         <li
-          v-for="(page, localIndex) in pages"
+          v-for="(page, localIndex) in publishedPages"
           class="nav-item"
           :key="localIndex"
         >
@@ -52,6 +52,11 @@ export default {
     return {
       themeShade: "light",
     };
+  },
+  computed: {
+    publishedPages() {
+      return this.pages.filter((p) => p.published);
+    },
   },
   created() {
     this.getThemeSettings();
