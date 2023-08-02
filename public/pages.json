@@ -2,28 +2,19 @@
   {
     "pageTitle": "Hello vue",
     "message": "Welcome to my first vue website",
-    "links": [
-      { "text": "Home", "urlPath": "index.html" },
-      { "text": "About", "urlPath": "about.html" },
-      { "text": "Contact", "urlPath": "contact.html" }
-    ]
+    "links": [{ "text": "Home", "urlPath": "index.html" }],
+    "published": true
   },
   {
     "pageTitle": "About Vue",
     "message": "Welcome to my first vue website",
-    "links": [
-      { "text": "Home", "urlPath": "index.html" },
-      { "text": "About", "urlPath": "about.html" },
-      { "text": "Contact", "urlPath": "contact.html" }
-    ]
+    "links": [{ "text": "About", "urlPath": "about.html" }],
+    "published": true
   },
   {
     "pageTitle": "Contact Vue",
     "message": "Welcome to my first vue website",
-    "links": [
-      { "text": "Home", "urlPath": "index.html" },
-      { "text": "About", "urlPath": "about.html" },
-      { "text": "Contact", "urlPath": "contact.html" }
-    ]
+    "links": [{ "text": "Contact", "urlPath": "contact.html" }],
+    "published": false
   }
 ]
