@@ -16,41 +16,23 @@ export default {
     PageNavbar,
     PageViewer,
   },
+  created() {
+    this.getPages();
+  },
   data() {
     return {
       // Used for tracking the current selected page
       activePage: 0,
       // navbarDark: false,
-      pages: [
-        {
-          pageTitle: "Hello vue",
-          message: "Welcome to my first vue website",
-          links: [
-            { text: "Home", urlPath: "index.html" },
-            { text: "About", urlPath: "about.html" },
-            { text: "Contact", urlPath: "contact.html" },
-          ],
-        },
-        {
-          pageTitle: "About Vue",
-          message: "Welcome to my first vue website",
-          links: [
-            { text: "Home", urlPath: "index.html" },
-            { text: "About", urlPath: "about.html" },
-            { text: "Contact", urlPath: "contact.html" },
-          ],
-        },
-        {
-          pageTitle: "Contact Vue",
-          message: "Welcome to my first vue website",
-          links: [
-            { text: "Home", urlPath: "index.html" },
-            { text: "About", urlPath: "about.html" },
-            { text: "Contact", urlPath: "contact.html" },
-          ],
-        },
-      ],
+      pages: [],
     };
+  },
+  methods: {
+    async getPages() {
+      let res = await fetch("pages.json");
+      let data = await res.json();
+      this.pages = data;
+    },
   },
 };
 </script>
