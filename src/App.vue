@@ -5,6 +5,7 @@
     :update-active-index="(index) => (activePage = index)"
   ></page-navbar>
   <create-page :page-created="pageCreated"></create-page>
+  <!-- Commenting it temporarily -->
   <!-- <page-viewer :page="pages[activePage]"></page-viewer>
    -->
   <!-- First approach of handling when data is being loaded -->
