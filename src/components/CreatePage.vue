@@ -56,7 +56,7 @@
 <script>
 export default {
   name: "CreatePage",
-  props: ["pageCreated"],
+  //   props: ["pageCreated"],
   data() {
     return {
       pageTitle: "",
@@ -87,12 +87,18 @@ export default {
         return;
       }
       console.log(`Link url is ${this.linkUrl}`);
-      this.pageCreated({
+      this.$emit("pageCreated", {
         pageTitle: this.pageTitle,
         content: this.content,
         links: [{ text: this.linkText, urlPath: this.linkUrl }],
         published: this.published,
       });
+      //   this.pageCreated({
+      //     pageTitle: this.pageTitle,
+      //     content: this.content,
+      //     links: [{ text: this.linkText, urlPath: this.linkUrl }],
+      //     published: this.published,
+      //   });
       this.clearForm();
     },
   },

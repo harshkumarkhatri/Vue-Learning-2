@@ -4,7 +4,7 @@
     :index="activePage"
     :update-active-index="(index) => (activePage = index)"
   ></page-navbar>
-  <create-page :page-created="pageCreated"></create-page>
+  <create-page @page-created="pageCreated"></create-page>
   <!-- Commenting it temporarily -->
   <!-- <page-viewer :page="pages[activePage]"></page-viewer>
    -->
