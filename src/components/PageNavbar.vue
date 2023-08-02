@@ -18,15 +18,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mr-auto">
-        <li v-for="(page, index) in pages" class="nav-item" :key="index">
-          <a
-            class="nav-link"
-            :class="{ active: activePage == index }"
-            :href="page.links[index].urlPath"
-            :title="`This link taked to ${page.links[index].text} page`"
-            @click.prevent="updateActiveIndex(index)"
-            >{{ page.links[index].text }}
-          </a>
+        <li
+          v-for="(page, localIndex) in pages"
+          class="nav-item"
+          :key="localIndex"
+        >
+          <navbar-link
+            :page="page"
+            :isActive="localIndex === index"
+            :index="localIndex"
+            @click.prevent="updateActiveIndex(localIndex)"
+          ></navbar-link>
         </li>
       </ul>
       <form class="d-flex">
@@ -39,8 +41,12 @@
 </template>
 
 <script>
+import NavbarLink from "./NavbarLink.vue";
 export default {
   name: "PageNavbar",
+  components: {
+    NavbarLink,
+  },
   props: ["pages", "index", "updateActiveIndex"],
   data() {
     return {
