@@ -18,18 +18,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mr-auto">
-        <li
+        <navbar-link
           v-for="(page, localIndex) in publishedPages"
           class="nav-item"
           :key="localIndex"
-        >
-          <navbar-link
-            :page="page"
-            :isActive="localIndex === index"
-            :index="localIndex"
-            @click.prevent="updateActiveIndex(localIndex)"
-          ></navbar-link>
-        </li>
+          :page="page"
+          :isActive="localIndex === index"
+          :index="localIndex"
+        ></navbar-link>
       </ul>
       <form class="d-flex">
         <button class="btn btn-primary" @click.prevent="changeTheme()">
@@ -47,7 +43,7 @@ export default {
   components: {
     NavbarLink,
   },
-  props: ["pages", "index", "updateActiveIndex"],
+  props: ["pages", "index"],
   data() {
     return {
       themeShade: "light",

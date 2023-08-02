@@ -1,12 +1,15 @@
 <template>
-  <a
-    class="nav-link"
-    :class="activeClass"
-    aria-current="page"
-    :href="page.links[0].urlPath"
-    :title="`This link taked to ${page.links[0].text} page`"
-    >{{ page.links[0].text }}
-  </a>
+  <li>
+    <a
+      class="nav-link"
+      :class="activeClass"
+      aria-current="page"
+      :href="page.links[0].urlPath"
+      :title="`This link taked to ${page.links[0].text} page`"
+      @click.prevent="$bus.$emit('navbarLinkActivated', index)"
+      >{{ page.links[0].text }}
+    </a>
+  </li>
 </template>
 
 <script scoped>
