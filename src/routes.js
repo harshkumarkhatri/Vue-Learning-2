@@ -8,6 +8,7 @@ const router = createRouter({
     {
       path: "/:index?",
       component: PageViewer,
+      props: true,
     },
     {
       path: "/create",

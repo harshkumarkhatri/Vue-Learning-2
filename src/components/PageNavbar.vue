@@ -26,6 +26,11 @@
           :isActive="localIndex === index"
           :index="localIndex"
         ></navbar-link>
+        <li>
+          <router-link to="/create" class="nav-link" aria-current="page"
+            >Create
+          </router-link>
+        </li>
       </ul>
       <form class="d-flex">
         <button class="btn btn-primary" @click.prevent="changeTheme()">
