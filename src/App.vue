@@ -1,5 +1,5 @@
 <template>
-  <page-navbar :pages="pages" :index="activePage"></page-navbar>
+  <page-navbar></page-navbar>
   <!-- <page-viewer :page="pages[activePage]"></page-viewer>
   <create-page @page-created="pageCreated"></create-page> -->
   <router-view></router-view>
@@ -18,26 +18,26 @@ export default {
     // PageViewer,
     // CreatePage,
   },
-  created() {
-    this.getPages();
-    this.$bus.$on("navbarLinkActivated", (index) => {
-      this.activePage = index;
-    });
-  },
-  data() {
-    return {
-      // Used for tracking the current selected page
-      activePage: 0,
-      // navbarDark: false,
-      pages: [],
-    };
-  },
+  // created() {
+  //   this.getPages();
+  //   this.$bus.$on("navbarLinkActivated", (index) => {
+  //     this.activePage = index;
+  //   });
+  // },
+  // data() {
+  //   return {
+  //     // Used for tracking the current selected page
+  //     activePage: 0,
+  //     // navbarDark: false,
+  //     pages: [],
+  //   };
+  // },
   methods: {
-    async getPages() {
-      let res = await fetch("pages.json");
-      let data = await res.json();
-      this.pages = data;
-    },
+    // async getPages() {
+    //   let res = await fetch("pages.json");
+    //   let data = await res.json();
+    //   this.pages = data;
+    // },
     pageCreated(pageObject) {
       // console.log(pageObject);
       // TODO: Not adding the value again and again if it is already present

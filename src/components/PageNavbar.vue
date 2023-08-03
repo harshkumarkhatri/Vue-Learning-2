@@ -23,11 +23,14 @@
           class="nav-item"
           :key="localIndex"
           :page="page"
-          :isActive="localIndex === index"
           :index="localIndex"
         ></navbar-link>
         <li>
-          <router-link to="/create" class="nav-link" aria-current="page"
+          <router-link
+            to="/create"
+            class="nav-link"
+            aria-current="page"
+            active-class="active"
             >Create
           </router-link>
         </li>
@@ -48,10 +51,11 @@ export default {
   components: {
     NavbarLink,
   },
-  props: ["pages", "index"],
+  // props: ["pages"],
   data() {
     return {
       themeShade: "light",
+      data: [],
     };
   },
   computed: {
@@ -61,6 +65,7 @@ export default {
   },
   created() {
     this.getThemeSettings();
+    this.pages = this.$pages.getAllPages();
   },
   methods: {
     changeTheme() {

@@ -12,7 +12,7 @@
     <router-link
       :to="`/${index}`"
       class="nav-link"
-      :class="activeClass"
+      active-class="active"
       aria-current="page"
       :title="`This link taked to ${page.links[0].text} page`"
       >{{ page.links[0].text }}
@@ -23,15 +23,15 @@
 <script scoped>
 export default {
   name: "NavbarLink",
-  props: ["page", "isActive", "index"],
-  computed: {
-    activeClass() {
-      return {
-        active: this.isActive,
-        emphasize: this.isActive,
-      };
-    },
-  },
+  props: ["page", "index"],
+  // computed: {
+  //   activeClass() {
+  //     return {
+  //       active: this.isActive,
+  //       emphasize: this.isActive,
+  //     };
+  //   },
+  // },
 };
 </script>
 
